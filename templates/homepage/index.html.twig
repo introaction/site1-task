@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CodeHub - Domovská stránka{% endblock %}
+
+{% block body %}
+    <!-- Hero komponenta - implementujte HTML strukturu a stylování podle Figma designu -->
+    {% if hero %}
+    <div>
+        <span>{{ asset('images/' ~ hero.backgroundImage) }}</span>
+        <span>{{ hero.title }}</span>
+        <span>{{ hero.text }}</span>
+    </div>
+    {% endif %}
+
+    <!-- CardBlock komponenta - implementujte HTML strukturu a stylování podle Figma designu -->
+    {% if card_block %}
+    <div>
+        <span>{{ card_block.title }}</span>
+        <div>
+            {% for card in card_block.cards %}
+                {% if card.isActive %}
+                <div>
+                    <span>{{ asset('images/' ~ card.image) }}</span>
+                    <span>{{ card.title }}</span>
+                    <span>{{ card.text }}</span>
+                    <span>{{ card.linkUrl }}</span>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Accordion komponenta - implementujte HTML strukturu a stylování podle Figma designu -->
+    {% if accordion_block %}
+    <div>
+        <span>{{ accordion_block.title }}</span>
+        <span>{{ accordion_block.description }}</span>
+        <div>
+            {% for faq in featured_faqs %}
+            <div>
+                <span>{{ faq.question }}</span>
+                <span>{{ faq.answer }}</span>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,13 @@
+/* 
+ * Accordion komponenta CSS
+ * Implementujte stylování podle Figma designu
+ * Použijte BEM metodologii pro názvy tříd
+ * 
+ * Accordion obsahuje:
+ * - Nadpis (title)
+ * - Popisek (description)
+ * - FAQ položky jako accordion (question klikací, answer se zobrazí/skryje)
+ * 
+ * Responzivní design pro desktop a mobil (breakpoint 480px)
+ * JavaScript funkčnost pro otevírání/zavírání FAQ položek
+ */

@@ -1,0 +1,18 @@
+/* 
+ * CardBlock komponenta CSS
+ * Implementujte stylování podle Figma designu
+ * Použijte BEM metodologii pro názvy tříd
+ * 
+ * CardBlock obsahuje:
+ * - Nadpis bloku (title)
+ * - Sada karet (cards)
+ * 
+ * Každá karta obsahuje:
+ * - Náhledový obrázek (image)
+ * - Nadpis karty (title)
+ * - Krátký text (text)  
+ * - Odkaz na detail (link-url)
+ * 
+ * Responzivní design pro desktop a mobil (breakpoint 480px)
+ * Karty by měly být v řádcích/sloupcích podle designu
+ */
