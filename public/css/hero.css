@@ -1,12 +1,38 @@
-/* 
- * Hero komponenta CSS
- * Implementujte stylování podle Figma designu
- * Použijte BEM metodologii pro názvy tříd
- * 
- * Hero obsahuje:
- * - Obrázek na pozadí (background-image)
- * - Nadpis (title)
- * - Krátký text (text)
- * 
- * Responzivní design pro desktop a mobil (breakpoint 480px)
- */
+.hero {
+  height: 820px;
+  background: url("/images/hero-bg.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.hero__title {
+  position: absolute;
+  top: 80px;
+  left: 80px;
+  width: 480px;
+  font: 600 100px/100% Inter, sans-serif;
+  letter-spacing: -0.03em;
+  color: #FFF;
+}
+
+.hero__intro {
+  position: absolute;
+  left: 80px;
+  bottom: 60px;
+  max-width: 550px;
+  color: #FFF;
+}
+
+@media (max-width: 720px) {
+  .hero__title {
+    left: 16px;
+    width: 280px;
+    font-size: 48px;
+  }
+
+  .hero__intro {
+    left: 16px;
+    max-width: none;
+    padding-right: 16px;
+  }
+}

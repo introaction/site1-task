@@ -1,4 +1,36 @@
-/* 
- * CSS Reset a základní styly
- * Implementujte základní reset stylů
- */
+@font-face {
+  font-family: Inter;
+  src: url("/fonts/Inter.ttf");
+  font-style: normal;
+  font-weight: 100 900;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("/fonts/Roboto.ttf");
+  font-style: normal;
+  font-weight: 100 900;
+}
+
+* {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  appearance: none;
+  box-sizing: content-box;
+}
+
+img {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+:root {
+  font: 400 18px/170% Inter, sans-serif;
+}

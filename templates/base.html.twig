@@ -15,21 +15,35 @@
         {% endblock %}
     </head>
     <body>
-        <!-- Header komponenta - implementujte HTML strukturu a stylování podle Figma designu -->
-        <div class="header-data">
-            <div class="logo-url">{{ asset('images/logo.svg') }}</div>
-            <div class="menu-items">
-                {% for item in menu_items %}
-                    <div class="menu-item">
-                        <span>{{ item.name }}</span>
-                        <span>{{ item.url }}</span>
-                        <span>{{ item.target }}</span>
-                    </div>
-                {% endfor %}
+        <nav class="header">            
+            <a href="/" class="header__home">
+                <img src="{{ asset('images/logo.png') }}" alt="SiteOne" class="header__logo"/>
+            </a>
+            <div class="header__menu-container" id="header-menu-container">
+                <div class="header__menu-flyout">
+                    <button 
+                        class="header__menu-button" 
+                        role="presentation"
+                        id="header-menu-button"
+                    >
+                        <img src="{{ asset('images/ham.svg') }}" alt="Menu" class="header__menu-icon"/>
+                    </button>
+                    <menu class="header__menu">
+                        {% for item in menu_items %}
+                            <li class="header__menu-item">
+                                <a href="{{ item.url }}" target="{{ item.target }}" class="header__menu-link">
+                                    {{ item.name }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </menu>
+                </div>
             </div>
-        </div>
+        </nav>
 
-        {% block body %}{% endblock %}
+        <main>
+            {% block body %}{% endblock %}
+        </main>
 
         {% block javascripts %}
             <script src="{{ asset('js/main.js') }}"></script>

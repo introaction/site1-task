@@ -3,47 +3,64 @@
 {% block title %}CodeHub - Domovská stránka{% endblock %}
 
 {% block body %}
-    <!-- Hero komponenta - implementujte HTML strukturu a stylování podle Figma designu -->
+<article>
     {% if hero %}
-    <div>
-        <span>{{ asset('images/' ~ hero.backgroundImage) }}</span>
-        <span>{{ hero.title }}</span>
-        <span>{{ hero.text }}</span>
-    </div>
+    <header class="hero">
+        <h1 class="hero__title">{{ hero.title }}</h1>
+        <p class="hero__intro">{{ hero.text }}</p>
+    </header>
     {% endif %}
 
-    <!-- CardBlock komponenta - implementujte HTML strukturu a stylování podle Figma designu -->
     {% if card_block %}
-    <div>
-        <span>{{ card_block.title }}</span>
-        <div>
+    <section class="card-block">
+        <h2 class="card-block__title">{{ card_block.title }}</h2>
+        <div class="card-block__gallery">
             {% for card in card_block.cards %}
                 {% if card.isActive %}
-                <div>
-                    <span>{{ asset('images/' ~ card.image) }}</span>
-                    <span>{{ card.title }}</span>
-                    <span>{{ card.text }}</span>
-                    <span>{{ card.linkUrl }}</span>
-                </div>
+                <a href="{{ card.linkUrl }}" class="card">
+                    <img src="{{ asset('images/' ~ card.image) }}" alt="" class="card__cover"/>
+                    <h3 class="card__title">{{ card.title }}</h3>
+                    <p class="card__text">{{ card.text }}</p>
+                </a>
                 {% endif %}
             {% endfor %}
         </div>
-    </div>
+    </section>
     {% endif %}
 
-    <!-- Accordion komponenta - implementujte HTML strukturu a stylování podle Figma designu -->
     {% if accordion_block %}
-    <div>
-        <span>{{ accordion_block.title }}</span>
-        <span>{{ accordion_block.description }}</span>
-        <div>
+    <section class="accordion">
+        <header class="accordion__header">
+            <h2 class="accordion__title">{{ accordion_block.title }}</h2>
+            <p class="accordion__intro">{{ accordion_block.description }}</p>
+        </header>
+        <div class="accordion__contents">
             {% for faq in featured_faqs %}
-            <div>
-                <span>{{ faq.question }}</span>
-                <span>{{ faq.answer }}</span>
-            </div>
+            <section class="accordion__item" id="{{ 'qa-' ~ faq.id }}">
+                <h3 class="accordion__heading">
+                    <button 
+                        class="accordion__question"
+                        aria-expanded="false"
+                        aria-controls="{{ 'a-' ~ faq.id }}"
+                        id="{{ 'q-' ~ faq.id }}"
+                    >
+                        {{ faq.question }}
+                    </button>
+                </h3>
+                <div class="accordion__details">
+                    <p 
+                        class="accordion__answer"
+                        aria-labelledby="{{ 'q-' ~ faq.id }}"
+                        role="region"
+                        id="{{ 'q-' ~ faq.id }}"
+                    >
+                        {{ faq.answer }}
+                    </p>
+                </div>
+            </section>
             {% endfor %}
         </div>
-    </div>
+    </section>
     {% endif %}
+</article>
 {% endblock %}

@@ -1,8 +1,119 @@
-/* 
- * Header komponenta CSS
- * Implementujte stylování podle Figma designu
- * Použijte BEM metodologii pro názvy tříd
- * 
- * Breakpoint pro mobilní zobrazení: 480px
- * Na mobilech se menu skrývá do hamburger menu
- */
+.header {
+  display: flex;
+  height: 84px;
+  padding-inline: 79px;
+  align-items: center;
+}
+
+.header__home {
+  display: contents;
+  flex: none;
+}
+
+.header__logo {  
+  height: 51px;
+}
+
+.header__menu-container {
+  display: contents;
+}
+
+.header__menu-flyout {
+  display: contents;
+}
+
+.header__menu {
+  display: flex;
+  margin-left: auto;
+  gap: 48px;
+  list-style: none;
+}
+
+.header__menu-item {
+}
+
+.header__menu-link {
+  display: block;
+  font: 600 13px/140% Roboto, ui-sans-serif;
+  text-transform: uppercase;  
+}
+
+.header__menu-button {
+  display: none;
+  margin-left: auto;
+  width: 36px;
+  height: 24px;
+  background: none;
+}
+
+@media (max-width: 720px) {
+  .header {
+    padding-inline: 24px;
+  }
+
+  .header__logo {  
+    height: 41px;
+  }
+
+  .header__menu-container {
+    background-color: #0000; /* Transition start point */
+    transition: background-color 800ms;
+  }
+
+  .header__menu-flyout {    
+    width: 84px; /* Transition start point */
+    transition: width 800ms;
+  }
+
+  .header__menu {
+    position: absolute;
+    width: 0; /* Menu is never removed from the accessibility tree */
+    overflow: hidden;
+  }
+
+  .header__menu-button {
+    display: block;
+  }  
+
+  .header__menu-icon {
+    width: 100%;
+    height: 100%;
+  }
+
+  .header__menu-container--opened {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background-color: #0009;
+  }
+
+  .header__menu-container--opened .header__menu-flyout {
+    display: flex;
+    position: absolute;
+    inset: 0 0 0 auto;
+    width: 160px;
+    background: #FFF;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .header__menu-container--opened .header__menu-button {
+    padding: 33px 100px 27px 24px;
+  }
+
+  .header__menu-container--opened .header__menu {
+    display: flex;    
+    position: relative;
+    width: auto;
+    margin: 0;
+    flex: auto;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .header__menu-container--opened .header__menu-link {
+    padding-left: 24px;
+    line-height: 40px;
+  }
+}
